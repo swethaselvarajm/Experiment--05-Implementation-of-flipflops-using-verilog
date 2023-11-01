@@ -102,39 +102,69 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+1.Create a project with required entities.
 
+2.Create a module along with respective file name.
 
+3.Run the respective programs for the given boolean equations.
+
+4.Run the module and get the respective RTL outputs.
+
+5.Create university program(VWF) for getting timing diagram.
+
+6.Give the respective inputs for timing diagram and obtain the results.
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: SWETHA.S
+RegisterNumber: 212222230155
+```
+module flipflop(s,r,Q,Qbar,clk);
+input s,r,clk;
+output reg Q,Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=s|(Q&(~r));
+Qbar=r|(Qbar&(~s));
+end
+endmodule
+
+JK FLIPFLOPS CODE:
+module flipflops(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+```
 */
 
-
-
-
-
-
 ### RTL LOGIC FOR FLIPFLOPS 
+SR FLIPFLOP:
 
+![image](https://github.com/swethaselvarajm/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119525603/835ee758-9d0b-4496-b153-d7c8eec058e3)
 
+JK FLIPFLOP:
 
-
-
-
-
-
+![image](https://github.com/swethaselvarajm/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119525603/6abbc51d-1ffb-4cfd-9ddb-d8ab798b0f67)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+SR FLIPFLOP:
 
+![270084178-5d928a52-5e03-4f86-89c4-a5e2ea096d07](https://github.com/swethaselvarajm/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119525603/5a66589f-c53e-4539-82db-b18962bc2cd9)
 
+JK FLIPFLOP:
 
+![image](https://github.com/swethaselvarajm/Experiment--05-Implementation-of-flipflops-using-verilog/assets/119525603/786f9d0b-2f61-48ae-b2c5-7ddd9a15e317)
 
-
-
-
-
-### RESULTS 
+### RESULTS :
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
